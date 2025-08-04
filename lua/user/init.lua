@@ -1,0 +1,6 @@
+require("user.functions")
+require("user.autocommands")
+require("user.commands")
+require("user.keymaps")
+require("user.options")
+require("user.misc")

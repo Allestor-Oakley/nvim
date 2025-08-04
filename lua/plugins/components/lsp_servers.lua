@@ -1,0 +1,23 @@
+return {
+    -- Web Dev
+    "biome",
+    "html",
+    "cssls",
+    "emmet_language_server",
+    "vue_ls",
+    "vtsls",
+    -- PHP
+    "intelephense",
+    -- Clang
+    "clangd",
+    -- JSON
+    "jsonls",
+    -- Rust
+    "rust_analyzer",
+    -- Python
+    "pyright",
+    "ruff",
+    -- Vim and Lua
+    "lua_ls",
+    "vimls",
+}
