@@ -25,7 +25,7 @@ local options = {
     ruler = false,
     showcmd = true,
 
-    pumblend = 10,
+    pumblend = 0,
     winblend = 0,
     pumheight = 10,
     pumwidth = 10,

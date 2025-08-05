@@ -1,8 +1,3 @@
-vim.api.nvim_set_hl(0, 'BlinkCmpMenu', { bg = 'black' })
-vim.api.nvim_set_hl(0, 'BlinkCmpDoc', { bg = 'black' })
-vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { bg = 'black' })
-vim.api.nvim_set_hl(0, 'BlinkCmpKind', { bg = 'black' })
-
 local opts = {
     snippets = { preset = 'luasnip' },
     keymap = {
@@ -17,7 +12,7 @@ local opts = {
             selection = { preselect = false, auto_insert = true }
         },
         menu = {
-            winblend = 10,
+            winblend = 0,
             border = 'rounded',
             draw = {
                 padding = { 0, 1 }, -- padding only on right side
@@ -30,7 +25,7 @@ local opts = {
         },
         documentation = {
             window = {
-                winblend = 10,
+                winblend = 0,
                 border = 'rounded',
             }
         },
@@ -38,7 +33,7 @@ local opts = {
     signature = {
         enabled = true,
         window = {
-            winblend = 10,
+            winblend = 0,
             border = 'rounded',
         }
     },
@@ -60,5 +55,8 @@ return {
     },
     version = '1.*',
     opts = opts,
+    config = function(_, blinkcmp_opts)
+        require("blink.cmp").setup(blinkcmp_opts)
+    end,
     event = vim.g.open_file_evt
 }

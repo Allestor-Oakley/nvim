@@ -4,7 +4,13 @@ return {
     opts = {
         show_in_active_only = true,
         excluded_filetypes = {
-            "alpha", "TelescopePrompt"
+            "alpha",
+            "prompt",
+            "TelescopePrompt",
+            "blink-cmp-menu",
+            "cmp_docs",
+            "cmp_menu",
+            "DressingInput"
         }
     }
 }

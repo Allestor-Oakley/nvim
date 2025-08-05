@@ -14,5 +14,6 @@ return {
         })
 
         vim.cmd("colorscheme onedark_vivid")
+        require("user.highlights")
     end,
 }
