@@ -22,5 +22,17 @@ return {
         keymap('<F9>', ':TermNew<cr>', 'Open New Terminal')
         keymap('<F10>', ':TermSelect<cr>', 'Select Terminal')
         keymap('<F12>', ':ToggleTerm<cr>', 'Toggle Terminal')
+
+        -- Auto in insert mode when changing to terminal
+        vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+            pattern = "*",
+            callback = function()
+                if vim.bo.filetype == "toggleterm" then
+                    vim.defer_fn(function()
+                        vim.cmd.startinsert()
+                    end, 50)
+                end
+            end
+        })
     end,
 }
