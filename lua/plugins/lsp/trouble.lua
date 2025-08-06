@@ -13,6 +13,6 @@ return {
     },
     cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
     keys = {
-        { "<leader>lo", "<cmd>Trouble diagnostics toggle<cr>", desc = "LSP: Trouble Diagnostics" }
+        { "<leader>lo", "<cmd>Trouble diagnostics toggle<cr>", desc = "LSP: Tr[o]uble Diagnostics" }
     }
 }

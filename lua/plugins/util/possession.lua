@@ -42,7 +42,7 @@ return {
                 return user_data
             end,
             after_load = function(name, _)
-                local file = io.open(require("plugins.components.user").LastSessionTracker)
+                local file = io.open(require("plugins.components.user").LastSessionTracker, "w")
                 if file == nil then return end
                 file:write(name)
                 file:close()

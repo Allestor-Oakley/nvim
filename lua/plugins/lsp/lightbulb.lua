@@ -9,7 +9,7 @@ return {
             { "v", "n" },
             "<leader>la",
             require("actions-preview").code_actions,
-            { noremap = true, silent = true, desc = "LSP: Code Action" }
+            { noremap = true, silent = true, desc = "LSP: Code [A]ction" }
         )
         return {
             autocmd = { enabled = true },
