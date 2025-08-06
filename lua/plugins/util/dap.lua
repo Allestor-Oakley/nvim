@@ -6,10 +6,10 @@ local dap_conf = function()
         layouts = {
             {
                 elements = {
-                    { id = "scopes",      size = 0.28 },
-                    { id = "breakpoints", size = 0.24 },
-                    { id = "stacks",      size = 0.24 },
-                    { id = "watches",     size = 0.24 }
+                    { id = "scopes",      size = 0.25 },
+                    { id = "breakpoints", size = 0.25 },
+                    { id = "stacks",      size = 0.25 },
+                    { id = "watches",     size = 0.25 }
                 },
                 position = "left",
                 size = vim.g.vspsize

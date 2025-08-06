@@ -19,4 +19,18 @@ return {
             end)
         end
     },
+    {
+        "RRethy/nvim-treesitter-textsubjects",
+        event = vim.g.open_file_evt,
+        config = function()
+            require('nvim-treesitter-textsubjects').configure({
+                prev_selection = ',',
+                keymaps = {
+                    ['.'] = 'textsubjects-smart',
+                    [';'] = 'textsubjects-container-outer',
+                    ['i;'] = 'textsubjects-container-inner',
+                },
+            })
+        end
+    }
 }
