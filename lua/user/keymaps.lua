@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- For consistency
+-- For function keys
 map("n", "<F11>", "", { desc = "Fullscreen" })
 
 -- Git diff

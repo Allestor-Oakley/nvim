@@ -7,7 +7,7 @@ local function lsp_keymaps(bufnr)
 	local keymap = function(keys, action, desc)
 		vim.api.nvim_buf_set_keymap(bufnr, "n", keys, action, { noremap = true, silent = true, desc = "LSP: " .. desc })
 	end
-	-- for consistency
+	-- For function keys
 	keymap("<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP Rename")
 	-- default mapping
 	keymap("<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", "Get [D]eclaration")
