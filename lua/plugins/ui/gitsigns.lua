@@ -7,6 +7,7 @@ return {
         keymap("<leader>gb", ":Gitsigns blame_line<cr>", "[B]lame Line"),
         keymap("<leader>gs", ":Gitsigns stage_hunk<cr>", "[S]tage Hunk"),
         keymap("<leader>gu", ":Gitsigns reset_hunk<cr>", "[U]ndo Hunk"),
+        keymap("<leader>gl", ":Gitsigns select_hunk<cr>", "Se[l]ect Hunk"),
         keymap("<leader>g,", ":Gitsigns prev_hunk<cr>", "Prev Hunk"),
         keymap("<leader>g.", ":Gitsigns next_hunk<cr>", "Next Hunk"),
     },
