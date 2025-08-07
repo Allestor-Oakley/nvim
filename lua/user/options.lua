@@ -49,3 +49,4 @@ end
 
 vim.cmd("filetype plugin indent on")
 vim.cmd('set shada="NONE"')
+vim.cmd('set guicursor+=c-t:ver25')
