@@ -16,6 +16,9 @@ return {
         end,
         opts = {
             legacy_commands = false,
+            footer = {
+                enabled = false
+            },
             workspaces = obsidian_workspaces,
         },
     },

@@ -63,11 +63,13 @@ create_ac("FileType", {
     end
 })
 
+-- Markdown
 create_ac({ "BufNewFile", "BufRead" }, {
     group = auGroup,
     pattern = "*.md",
     callback = function()
         vim.opt_local.conceallevel = 2
+        vim.opt.wrap = true
     end
 })
 
