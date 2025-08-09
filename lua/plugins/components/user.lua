@@ -1,7 +1,7 @@
 return {
     UserName = "Allestor Oakley",
     CondaPrefixPath = vim.fn.expand("$HOME/miniconda3/envs/"),
-    PythonPath = vim.fn.expand("$HOME/AppData/Local/Programs/Python/Python39/python"),
+    PythonPath = vim.fn.expand("C:/Program Files/Python313/"),
     LastSessionTracker = vim.fn.stdpath('data') .. "/my-data/last_possession",
     ObsidianWorkspaces = {
         {
