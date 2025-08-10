@@ -93,12 +93,6 @@ map("n", "<leader>w", "<C-w>")
 -- Play macro
 map("n", "Q", "@", { desc = "Play Macro" })
 
--- Resizing split
-map("n", "<M-down>", ":call ResizeSplit('horizontal', '+')<cr>", { silent = true, desc = "Split: Resizing Down" })
-map("n", "<M-up>", ":call ResizeSplit('horizontal', '-')<cr>", { silent = true, desc = "Split: Resizing Up" })
-map("n", "<M-right>", ":call ResizeSplit('vertical', '+')<cr>", { silent = true, desc = "Split: Resizing Right" })
-map("n", "<M-left>", ":call ResizeSplit('vertical', '-')<cr>", { silent = true, desc = "Split: Resizing Left" })
-
 vim.cmd([[
 " Skip semicolon if it already typed
 inoremap <expr> ; getline(".")[col(".")-1] == ';' ? '<Right>' : ';'
@@ -162,3 +156,41 @@ vim.g.sidebar_ft = {
     ["neotest-summary"] = true, ["neotest-output-panel"] = true,
     trouble = true, dbui = true, help = true, qf = true
 }
+
+-- Resizing split more consistently
+-- dir is either "vertical" or "horizontal"
+-- operation is either "+" or "-"
+local function resize_split(dir, operation)
+    local resize_command = "resize "
+    if dir == "vertical" then
+        resize_command = "vert " .. resize_command
+    end
+    local size = (dir == "vertical") and "5" or "2"
+
+    -- check if the split is the most right or the most bottom
+    local at_the_edge = false
+    if dir == "vertical" then
+        at_the_edge = vim.fn.winnr() == vim.fn.winnr("l")
+    else
+        at_the_edge = vim.fn.winnr() == vim.fn.winnr("j")
+    end
+
+    -- Stop, if there is no horizontal split and the move is horizontal
+    if at_the_edge and dir == "horizontal" then
+        if vim.fn.winnr() == vim.fn.winnr("k") then
+            return
+        end
+    end
+
+    -- Inverse operation if at the edge
+    if at_the_edge then
+        operation = (operation == "+") and "-" or "+"
+    end
+
+    vim.cmd(resize_command .. operation .. size)
+end
+
+map("n", "<M-down>", function() resize_split('horizontal', '+') end, { silent = true, desc = "Split: Resizing Down" })
+map("n", "<M-up>", function() resize_split('horizontal', '-') end, { silent = true, desc = "Split: Resizing Up" })
+map("n", "<M-right>", function() resize_split('vertical', '+') end, { silent = true, desc = "Split: Resizing Right" })
+map("n", "<M-left>", function() resize_split('vertical', '-') end, { silent = true, desc = "Split: Resizing Left" })
