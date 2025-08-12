@@ -43,6 +43,8 @@ return {
                 { pattern = "minty", icon = '', color = 'cyan' },
                 { pattern = "neotree", icon = '', color = 'orange' },
                 { pattern = "yazi", icon = '', color = 'orange' },
+                { pattern = "menu", icon = '󱕐', color = 'blue' },
+                { pattern = "treewalker", icon = '', color = 'green' },
             }
         }
     },
