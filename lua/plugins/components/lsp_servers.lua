@@ -5,7 +5,7 @@ return {
     "cssls",
     "emmet_language_server",
     "vue_ls",
-    "vtsls",
+    "ts_ls",
     -- PHP
     "intelephense",
     -- Clang
