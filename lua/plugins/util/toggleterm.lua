@@ -22,7 +22,9 @@ return {
         keymap('<F9>', ':TermNew<cr>', 'Open New Terminal')
         keymap('<F10>', ':TermSelect<cr>', 'Select Terminal')
         keymap('<F12>', ':ToggleTerm<cr>', 'Toggle Terminal')
-
+        vim.keymap.set("v", "<A-F12>",
+            ":'<,'>lua require('plugins.components.send_to_ipython').send_lines_to_ipython()<cr>"
+            , { silent = true })
         -- Auto in insert mode when changing to terminal
         vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
             pattern = "*",
