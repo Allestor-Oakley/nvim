@@ -20,30 +20,6 @@ create_ac("BufWritePre", {
     end
 })
 
--- PHP
-create_ac({ "BufNewFile", "BufRead" }, {
-    group = auGroup,
-    pattern = "*.php",
-    callback = function()
-        vim.opt_local.ft = "phtml"
-        vim.opt_local.autoindent = true
-        vim.opt_local.copyindent = true
-        vim.opt_local.smartindent = false
-        vim.keymap.set("n", "cc", '"_ddko', {
-            noremap = true, buffer = true
-        })
-    end
-})
-
--- JSON
-create_ac({ "BufNewFile", "BufRead" }, {
-    group = auGroup,
-    pattern = "*.json",
-    callback = function()
-        vim.opt_local.syntax = "jsonc"
-    end
-})
-
 -- Qss
 create_ac({ "BufNewFile", "BufRead" }, {
     group = auGroup,
@@ -54,33 +30,14 @@ create_ac({ "BufNewFile", "BufRead" }, {
     end
 })
 
--- Godot
-create_ac("FileType", {
-    group = auGroup,
-    pattern = "gdscript",
-    callback = function()
-        vim.opt_local.commentstring = "#\\ %s"
-    end
-})
-
--- Markdown
-create_ac({ "BufNewFile", "BufRead" }, {
-    group = auGroup,
-    pattern = "*.md",
-    callback = function()
-        vim.opt_local.conceallevel = 2
-        vim.opt.wrap = true
-    end
-})
-
 --  Quickfix list
 create_ac("FileType", {
     group = auGroup,
     pattern = "qf",
     callback = function()
         vim.keymap.set("n", "q", '<CR>:ccl<CR>', { buffer = true })
-        vim.cmd('call feedkeys("\\<C-w>\\<C-p>")')
         vim.opt_local.wrap = true
+        vim.cmd('call feedkeys("\\<C-w>\\<C-p>")')
         vim.cmd('resize ' .. vim.g.hspsize)
     end
 })
