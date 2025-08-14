@@ -4,7 +4,7 @@ return {
     opts = {},
     ---@format disable-next
     keys = {
-        { "<leader>To", "<cmd>Trouble todo toggle<cr>", desc = "Todo: [O]pen" },
+        { "<leader>t0", "<cmd>Trouble todo toggle<cr>", desc = "Todo: [O]pen" },
         { "<leader>fo", "<cmd>TodoTelescope<cr>", desc = "Telescope: T[o]do" },
     },
 }

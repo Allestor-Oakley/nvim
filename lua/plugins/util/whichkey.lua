@@ -16,11 +16,6 @@ return {
             },
             { "<leader>r", group = "Refactoring" },
             { "<leader>`", group = "Kulala" },
-            {
-                "<leader>T",
-                group = "Todo",
-                icon = { icon = '', color = 'yellow' }
-            },
         },
         icons = {
             rules = {

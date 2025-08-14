@@ -8,6 +8,11 @@ return {
                 win = {
                     size = vim.g.hspsize,
                 },
+            },
+            todo = {
+                win = {
+                    size = vim.g.hspsize,
+                },
             }
         }
     },
