@@ -1,9 +1,16 @@
 return {
     'akinsho/toggleterm.nvim',
     event = vim.g.open_file_evt,
+    cmd = "IPRepl",
     config = function()
         require('toggleterm').setup({
-            size = vim.g.hspsize,
+            size = function(term)
+                if term.direction == "horizontal" then
+                    return vim.g.hspsize
+                elseif term.direction == "vertical" then
+                    return 70
+                end
+            end,
             close_on_exit = false,
         })
 
@@ -19,12 +26,36 @@ return {
                 desc = "ToggleTerm: " .. desc
             })
         end
+
         keymap('<F9>', ':TermNew<cr>', 'Open New Terminal')
         keymap('<F10>', ':TermSelect<cr>', 'Select Terminal')
         keymap('<F12>', ':ToggleTerm<cr>', 'Toggle Terminal')
-        vim.keymap.set("v", "<A-F12>",
-            ":'<,'>lua require('plugins.components.send_to_ipython').send_lines_to_ipython()<cr>"
-            , { silent = true })
+        vim.keymap.set("n", "<A-F12>", function()
+            vim.api.nvim_feedkeys(
+                vim.api.nvim_replace_termcodes("v/^# %%<cr>kogNj", true, true, true),
+                "n",
+                true
+            )
+
+            local prompt = ":'<,'>lua require('plugins.components.send_to_ipython').send_lines_to_ipython()<cr>"
+            vim.api.nvim_feedkeys(
+                vim.api.nvim_replace_termcodes(prompt, true, true, true),
+                "n",
+                true
+            )
+        end, { silent = true })
+        vim.api.nvim_create_user_command("IPRepl", function()
+            local Terminal = require('toggleterm.terminal').Terminal
+            local ipdtsc   = Terminal:new({
+                cmd = "conda activate dtsc && ipython --no-autoindent --nosep --no-banner",
+                hidden = false,
+                direction = "vertical",
+                auto_scroll = true,
+            })
+
+            ipdtsc:toggle()
+        end, {})
+
         -- Auto in insert mode when changing to terminal
         vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
             pattern = "*",
