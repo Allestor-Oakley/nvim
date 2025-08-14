@@ -30,20 +30,7 @@ return {
         keymap('<F9>', ':TermNew<cr>', 'Open New Terminal')
         keymap('<F10>', ':TermSelect<cr>', 'Select Terminal')
         keymap('<F12>', ':ToggleTerm<cr>', 'Toggle Terminal')
-        vim.keymap.set("n", "<NL>", function()
-            vim.api.nvim_feedkeys(
-                vim.api.nvim_replace_termcodes("v/^# %%<cr>kogNj", true, true, true),
-                "n",
-                true
-            )
 
-            local prompt = ":'<,'>lua require('plugins.components.send_to_ipython').send_lines_to_ipython()<cr>"
-            vim.api.nvim_feedkeys(
-                vim.api.nvim_replace_termcodes(prompt, true, true, true),
-                "n",
-                true
-            )
-        end, { silent = true })
         vim.api.nvim_create_user_command("IPRepl", function()
             local Terminal = require('toggleterm.terminal').Terminal
             local ipdtsc   = Terminal:new({
