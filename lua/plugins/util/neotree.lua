@@ -89,6 +89,8 @@ local neotree_opts = {
         mappings = {
             ["e"] = "toggle_node",
             ["/"] = "noop",
+            ["s"] = "noop",
+            ["v"] = "open_vsplit",
             ["<F2>"] = "rename",
         }
     }

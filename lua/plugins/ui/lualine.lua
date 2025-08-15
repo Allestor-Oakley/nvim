@@ -1,3 +1,57 @@
+local function git_info()
+    local git_status = vim.b.gitsigns_status_dict
+    local b = " " .. git_status.head
+    local a = "%#diffAdded#+" .. (git_status.added or 0)
+    local c = "%#diffChanged# ~" .. (git_status.changed or 0)
+    local r = "%#diffRemoved# -" .. (git_status.removed or 0)
+    if git_status then
+        return b .. " (" .. a .. c .. r .. "%#lualine_c_normal#)"
+    end
+    return ''
+end
+
+local function session_name()
+    return ' ' .. (require('possession.session').get_session_name() or '-')
+end
+
+local function diagnostic_info()
+    local vd = vim.diagnostic
+    local dg = vd.count(0)
+    local counts = {
+        "" .. (dg[vd.severity.ERROR] or 0),
+        " " .. (dg[vd.severity.WARN] or 0),
+        " " .. (dg[vd.severity.INFO] or 0),
+        " 󰌶" .. (dg[vd.severity.HINT] or 0),
+    }
+    local hi = {
+        "%#DiagnosticError#",
+        "%#DiagnosticWarn#",
+        "%#DiagnosticInfo#",
+        "%#DiagnosticHint#",
+    }
+    for i, val in ipairs(counts) do
+        if string.match(val, "%d+") ~= "0" then
+            counts[i] = hi[i] .. val
+        else
+            counts[i] = "%#Comment#" .. val
+        end
+    end
+    return table.concat(counts) .. "%#lualine_c_normal#"
+end
+
+local function lightbulb()
+    return "act: %#LightBulbSign#" .. require('nvim-lightbulb').get_status_text()
+end
+
+local function file_status()
+    local format_color = { dos = "Cyan", mac = "Red", unix = "Yellow" }
+    local format = vim.bo.fileformat
+    format = "%#TSRainbow" .. format_color[format] .. "#" .. format .. "%*"
+    local encoding = vim.bo.fileencoding
+    local filesize = require "lualine.components.filesize" ()
+    return "%#TSRainbowOrange#%* " .. encoding .. ":" .. format .. ":" .. filesize
+end
+
 local lualine_conf = function()
     vim.opt.laststatus = 3
 
@@ -34,60 +88,9 @@ local lualine_conf = function()
         ['CONFIRM']   = ' (lll￢ω￢)',
         ['MORE']      = '  ╮(╯-╰)╭  ',
     }
-    local function git_info()
-        local git_status = vim.b.gitsigns_status_dict
-        local b = " " .. git_status.head
-        local a = "%#diffAdded#+" .. (git_status.added or 0)
-        local c = "%#diffChanged# ~" .. (git_status.changed or 0)
-        local r = "%#diffRemoved# -" .. (git_status.removed or 0)
-        if git_status then
-            return b .. " (" .. a .. c .. r .. "%#lualine_c_normal#)"
-        end
-        return ''
-    end
-
-    local function session_name()
-        return ' ' .. (require('possession.session').get_session_name() or '-')
-    end
-
-    local function diagnostic_info()
-        local vd = vim.diagnostic
-        local dg = vd.count(0)
-        local counts = {
-            "" .. (dg[vd.severity.ERROR] or 0),
-            " " .. (dg[vd.severity.WARN] or 0),
-            " " .. (dg[vd.severity.INFO] or 0),
-            " 󰌶" .. (dg[vd.severity.HINT] or 0),
-        }
-        local hi = {
-            "%#DiagnosticError#",
-            "%#DiagnosticWarn#",
-            "%#DiagnosticInfo#",
-            "%#DiagnosticHint#",
-        }
-        for i, val in ipairs(counts) do
-            if string.match(val, "%d+") ~= "0" then
-                counts[i] = hi[i] .. val
-            else
-                counts[i] = "%#Comment#" .. val
-            end
-        end
-        return table.concat(counts) .. "%#lualine_c_normal#"
-    end
-
-    local function lightbulb()
-        return "act: %#LightBulbSign#" .. require('nvim-lightbulb').get_status_text()
-    end
 
     --- Give color
-    ---@param color string
-    ---@return table
-    local function gc(color)
-        return {
-            fg = color,
-            gui = "NONE"
-        }
-    end
+    local function gc(color) return { fg = color, gui = "NONE" } end
 
     require("lualine").setup({
         options = {
@@ -112,8 +115,6 @@ local lualine_conf = function()
                     'filename',
                     color = gc(custom_auto["command"]["a"].bg),
                 },
-            },
-            lualine_x = {
                 {
                     'location',
                     color = gc(custom_auto["visual"]["a"].bg),
@@ -123,7 +124,7 @@ local lualine_conf = function()
                     color = gc(custom_auto["visual"]["a"].bg),
                 },
             },
-            lualine_y = {
+            lualine_x = {
                 {
                     session_name,
                     color = gc(custom_auto["replace"]["a"].bg),
@@ -133,6 +134,9 @@ local lualine_conf = function()
                     color = gc(custom_auto["normal"]["a"].bg),
                 },
                 lightbulb,
+            },
+            lualine_y = {
+                file_status,
                 'filetype',
             },
             lualine_z = {
