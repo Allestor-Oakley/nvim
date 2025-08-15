@@ -79,6 +79,15 @@ local lualine_conf = function()
         return "act: %#LightBulbSign#" .. require('nvim-lightbulb').get_status_text()
     end
 
+    local function file_status()
+        local format_color = { dos = "Cyan", mac = "Red", unix = "Yellow" }
+        local format = vim.bo.fileformat
+        format = "%#TSRainbow" .. format_color[format] .. "#" .. format .. "%*"
+        local encoding = vim.bo.fileencoding
+        local filesize = require "lualine.components.filesize" ()
+        return "%#TSRainbowOrange#%* " .. encoding .. ":" .. format .. ":" .. filesize
+    end
+
     --- Give color
     ---@param color string
     ---@return table
@@ -112,8 +121,6 @@ local lualine_conf = function()
                     'filename',
                     color = gc(custom_auto["command"]["a"].bg),
                 },
-            },
-            lualine_x = {
                 {
                     'location',
                     color = gc(custom_auto["visual"]["a"].bg),
@@ -122,6 +129,8 @@ local lualine_conf = function()
                     'progress',
                     color = gc(custom_auto["visual"]["a"].bg),
                 },
+            },
+            lualine_x = {
             },
             lualine_y = {
                 {
@@ -133,6 +142,7 @@ local lualine_conf = function()
                     color = gc(custom_auto["normal"]["a"].bg),
                 },
                 lightbulb,
+                file_status,
                 'filetype',
             },
             lualine_z = {
