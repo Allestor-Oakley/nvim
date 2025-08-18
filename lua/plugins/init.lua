@@ -48,7 +48,8 @@ require("lazy").setup({
                 "logipat", "netrw", "netrwPlugin", "netrwSettings",
                 "netrwFileHandlers", "matchit", "tar", "tarPlugin",
                 "rrhelper", "vimball", "vimballPlugin", "zip",
-                "zipPlugin", "tutor", "tohtml", "shada", "spellfile"
+                "zipPlugin", "tutor", "tohtml", "shada", "spellfile",
+                "osc52"
             },
         }
     }
