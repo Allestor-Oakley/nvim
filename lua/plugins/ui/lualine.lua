@@ -70,7 +70,7 @@ local lualine_conf = function()
     end
 
     local mode_map = {
-        ['NORMAL']    = '  ᕕ( ᐛ  )ᕗ ',
+        ['NORMAL']    = ' (づ•‿•)づ♡',
         ['O-PENDING'] = '  (ㆆ _ ㆆ)',
         ['INSERT']    = '  ᕕ(⌐■_■)ᕗ ',
         ['VISUAL']    = '   (/≧▽≦)/ ',
