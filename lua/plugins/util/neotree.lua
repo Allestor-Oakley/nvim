@@ -1,4 +1,24 @@
+-- stolen from: https://stackoverflow.com/a/27911647
+local function natural_sort(a, b)
+    a = string.lower(tostring(a))
+    b = string.lower(tostring(b))
+    local patt = '^(.-)%s*(%d+)$'
+    local _, _, col1, num1 = a:find(patt)
+    local _, _, col2, num2 = b:find(patt)
+    if (col1 and col2) and col1 == col2 then
+        return tonumber(num1) < tonumber(num2)
+    end
+    return a < b
+end
+
 local neotree_opts = {
+    sort_function = function(a, b)
+        if a.type == b.type then
+            return natural_sort(a.path, b.path)
+        else
+            return a.type < b.type
+        end
+    end,
     sources = {
         "filesystem",
         "git_status",
