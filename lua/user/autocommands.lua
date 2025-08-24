@@ -42,6 +42,15 @@ create_ac("FileType", {
     end
 })
 
+-- Help filetype
+create_ac("FileType", {
+    group = auGroup,
+    pattern = "help",
+    callback = function()
+        vim.cmd("wincmd J || lua vim.cmd.resize(vim.g.hspsize)")
+    end
+})
+
 -- Restore cursor
 create_ac("VimLeave", {
     group = auGroup,

@@ -78,7 +78,7 @@ return {
             require("telescope.builtin").help_tags({
                 previewer = false,
                 layout_config = {
-                    width = 0.2,
+                    width = 0.21,
                     height = 0.3,
                     anchor = "NE"
                 }
@@ -92,7 +92,7 @@ return {
                 layout_strategy = "vertical",
                 layout_config = {
                     prompt_position = "top",
-                    width = 0.2,
+                    width = 0.21,
                     height = 0.4,
                     anchor = "NE",
                     preview_height = 0.2

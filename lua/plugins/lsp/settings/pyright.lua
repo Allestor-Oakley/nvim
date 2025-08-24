@@ -15,7 +15,7 @@ return {
                 reportUnusedImport = "none",
                 reportUnusedFunction = "none",
                 autoSearchPaths = true,
-                useLibraryCodeForTypes = false,
+                -- useLibraryCodeForTypes = false,
                 diagnosticMode = 'openFilesOnly',
                 ignore = { '*' },
             },
