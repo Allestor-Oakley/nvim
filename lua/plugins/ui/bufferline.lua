@@ -29,5 +29,13 @@ return {
         end
         vim.keymap.set("n", "<leader>/", ":BufferLinePickClose<cr>",
             { desc = "Bufferline: Pick Close", noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>bh", ":BufferLineMovePrev<cr>",
+            { desc = "Bufferline: Move To Prev", noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>bl", ":BufferLineMoveNext<cr>",
+            { desc = "Bufferline: Move To Next", noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>bp", ":BufferLineTogglePin<cr>",
+            { desc = "Bufferline: Toggle Pin", noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>bc", ":BufferLinePickClose<cr>",
+            { desc = "Bufferline: Pick Close", noremap = true, silent = true })
     end,
 }

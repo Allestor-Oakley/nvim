@@ -16,6 +16,7 @@ return {
             },
             { "<leader>r", group = "Refactoring" },
             { "<leader>`", group = "Kulala" },
+            { "<leader>b", group = "Bufferline" },
         },
         icons = {
             rules = {
@@ -40,6 +41,7 @@ return {
                 { pattern = "yazi", icon = '', color = 'orange' },
                 { pattern = "menu", icon = '󱕐', color = 'blue' },
                 { pattern = "treewalker", icon = '', color = 'green' },
+                { pattern = "bufferline", icon = '󰓩', color = 'cyan' },
             }
         }
     },
