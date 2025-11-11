@@ -2,7 +2,6 @@ return {
     -- Treesitter node action
     {
         'ckolkey/ts-node-action',
-        event = vim.g.open_file_evt,
         keys = {
             { "K", desc = "TS Node Action: Action" }
         },

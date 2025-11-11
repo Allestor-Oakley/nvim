@@ -1,5 +1,6 @@
 return {
     'stevearc/overseer.nvim',
+    version = "1.6.0",
     cmd = {
         "OverseerOpen", "OverseerClose",
         "OverseerToggle", "OverseerSaveBundle",
