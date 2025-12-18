@@ -15,7 +15,7 @@ return {
     -- Rust
     "rust_analyzer",
     -- Python
-    "pyright",
+    "ty",
     "ruff",
     -- Vim and Lua
     "lua_ls",
