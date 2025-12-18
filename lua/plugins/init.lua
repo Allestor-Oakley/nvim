@@ -38,7 +38,7 @@ require("lazy").setup({
         border = "rounded",
         size = {
             width = vim.g.flsize,
-            height = vim.g.flsize,
+            height = vim.g.flsize + 0.02,
         }
     },
     performance = {

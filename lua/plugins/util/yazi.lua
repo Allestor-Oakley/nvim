@@ -16,6 +16,6 @@ return {
         keymaps = {
             show_help = "<f1>",
         },
-        floating_window_scaling_factor = vim.g.flsize
+        floating_window_scaling_factor = vim.g.flsize + 0.004
     },
 }

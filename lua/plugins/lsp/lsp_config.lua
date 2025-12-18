@@ -16,7 +16,7 @@ return {
             ui = {
                 border = "rounded",
                 width = vim.g.flsize,
-                height = vim.g.flsize,
+                height = vim.g.flsize + 0.02,
             },
         })
         require("mason-lspconfig").setup({
