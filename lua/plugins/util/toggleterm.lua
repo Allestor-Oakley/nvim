@@ -31,18 +31,6 @@ return {
         keymap('<F10>', ':TermSelect<cr>', 'Select Terminal')
         keymap('<F12>', ':ToggleTerm<cr>', 'Toggle Terminal')
 
-        vim.api.nvim_create_user_command("IPRepl", function()
-            local Terminal = require('toggleterm.terminal').Terminal
-            local ipdtsc   = Terminal:new({
-                cmd = "conda activate dtsc && ipython --no-autoindent --nosep --no-banner",
-                hidden = false,
-                direction = "vertical",
-                auto_scroll = true,
-            })
-
-            ipdtsc:toggle()
-        end, {})
-
         -- Auto in insert mode when changing to terminal
         vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
             pattern = "*",
