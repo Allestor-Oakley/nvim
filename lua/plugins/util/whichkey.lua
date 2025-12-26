@@ -43,6 +43,7 @@ return {
                 { pattern = "treewalker", icon = '', color = 'green' },
                 { pattern = "bufferline", icon = '󰓩', color = 'cyan' },
                 { pattern = "clever", icon = '', color = 'cyan' },
+                { pattern = "toggleterm", icon = '', color = 'yellow' },
             }
         },
         plugins = {
@@ -62,7 +63,7 @@ return {
             function()
                 require("which-key").show({ global = true })
             end,
-            desc = "Whichkey: Show All Keymap",
+            desc = "Whichkey: Show Keymaps",
         },
     },
     config = function(_, opts)

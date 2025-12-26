@@ -11,7 +11,7 @@ local function git_info()
 end
 
 local function session_name()
-    return ' ' .. (require('possession.session').get_session_name() or '-')
+    return ' ' .. (require('possession.session').get_session_name() or '-')
 end
 
 local function diagnostic_info()
@@ -19,9 +19,9 @@ local function diagnostic_info()
     local dg = vd.count(0)
     local counts = {
         "" .. (dg[vd.severity.ERROR] or 0),
-        " " .. (dg[vd.severity.WARN] or 0),
-        " " .. (dg[vd.severity.INFO] or 0),
-        " 󰌶" .. (dg[vd.severity.HINT] or 0),
+        "" .. (dg[vd.severity.WARN] or 0),
+        "" .. (dg[vd.severity.INFO] or 0),
+        "󰌶" .. (dg[vd.severity.HINT] or 0),
     }
     local hi = {
         "%#DiagnosticError#",
@@ -36,7 +36,7 @@ local function diagnostic_info()
             counts[i] = "%#Comment#" .. val
         end
     end
-    return table.concat(counts) .. "%#lualine_c_normal#"
+    return table.concat(counts, " ") .. "%#lualine_c_normal#"
 end
 
 local function lightbulb()
