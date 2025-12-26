@@ -42,8 +42,19 @@ return {
                 { pattern = "menu", icon = '󱕐', color = 'blue' },
                 { pattern = "treewalker", icon = '', color = 'green' },
                 { pattern = "bufferline", icon = '󰓩', color = 'cyan' },
+                { pattern = "clever", icon = '', color = 'cyan' },
             }
-        }
+        },
+        plugins = {
+            presets = {
+                operators = false,
+                motions = false,
+                text_objects = false,
+                windows = false,
+                nav = false,
+            }
+        },
+        sort = { "order", "group", "alphanum", "mod" },
     },
     keys = {
         {

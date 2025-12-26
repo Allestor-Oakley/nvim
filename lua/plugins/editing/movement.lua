@@ -8,16 +8,23 @@ return {
     },
     {
         "rhysd/clever-f.vim",
+        config = function()
+            vim.keymap.set({ "n", "o", "x" }, "f", "<Plug>(clever-f-f)", { desc = "Clever: f" })
+            vim.keymap.set({ "n", "o", "x" }, "F", "<Plug>(clever-f-F)", { desc = "Clever: F" })
+            vim.keymap.set({ "n", "o", "x" }, "t", "<Plug>(clever-f-t)", { desc = "Clever: t" })
+            vim.keymap.set({ "n", "o", "x" }, "T", "<Plug>(clever-f-T)", { desc = "Clever: T" })
+        end,
         event = vim.g.open_file_evt,
     },
     {
         "chrisgrieser/nvim-spider",
         config = function()
             require("spider").setup({})
-            vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-            vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-            vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-            vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+            vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider: w" })
+            vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider: e" })
+            vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider: b" })
+            vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>",
+                { desc = "Spider: ge" })
         end,
         event = vim.g.open_file_evt
     },

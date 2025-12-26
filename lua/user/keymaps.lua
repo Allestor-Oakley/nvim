@@ -7,6 +7,10 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
+-- To remove them from whichkey list
+map("n", "Y", "Y")
+map("n", "&", "&")
+
 -- For function keys
 map("n", "<F11>", "", { desc = "Fullscreen" })
 
@@ -84,14 +88,14 @@ map("i", "{", "{<c-g>u")
 map("i", "}", "}<c-g>u")
 
 -- Save
-map("n", "<leader>we", ":write<CR>", { silent = true })
-map("n", "<leader>wa", ":noautocmd write<CR>", { silent = true })
+map("n", "<leader>we", ":write<CR>", { silent = true, desc = "Save and Format" })
+map("n", "<leader>wa", ":noautocmd write<CR>", { silent = true, desc = "Save and don't Format" })
 
 -- Change windows
 map("n", "<leader>w", "<C-w>")
 
 -- Play macro
-map("n", "Q", "@", { desc = "Play Macro" })
+map("n", "Q", "@")
 
 vim.cmd([[
 " Skip semicolon if it already typed
@@ -158,8 +162,8 @@ vim.g.sidebar_ft = {
 }
 
 -- Resizing split more consistently
--- dir is either "vertical" or "horizontal"
--- operation is either "+" or "-"
+-- dir: "vertical" or "horizontal"
+-- operation: "+" or "-"
 local function resize_split(dir, operation)
     local resize_command = "resize "
     if dir == "vertical" then
