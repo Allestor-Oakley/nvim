@@ -39,7 +39,7 @@ vim.api.nvim_create_user_command("IPRepl", function()
 
     local Terminal = require('toggleterm.terminal').Terminal
     local ipdtsc   = Terminal:new({
-        cmd = "conda activate dtsc && ipython --no-autoindent --nosep --no-banner",
+        cmd = "uv run ipython --no-autoindent --nosep --no-banner",
         hidden = false,
         direction = "vertical",
         auto_scroll = true,
