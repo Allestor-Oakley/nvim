@@ -5,7 +5,6 @@ return {
     "c_sharp",
     "cpp",
     "css",
-    "csv",
     "go",
     "comment",
     "gdscript",
