@@ -43,12 +43,14 @@ create_ac("FileType", {
 })
 
 -- Help filetype
-create_ac("FileType", {
+create_ac("BufWinEnter", {
     group = auGroup,
-    pattern = "help",
+    pattern = "*.txt",
     callback = function()
-        vim.cmd("wincmd J || lua vim.cmd.resize(vim.g.hspsize)")
-    end
+        if vim.bo.buftype == 'help' then
+            vim.cmd("wincmd J || lua vim.cmd.resize(vim.g.hspsize)")
+        end
+    end,
 })
 
 -- Restore cursor
