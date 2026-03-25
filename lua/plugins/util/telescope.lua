@@ -32,7 +32,6 @@ local function tel_conf()
     })
 
     require('telescope').load_extension('fzf')
-    require('telescope').load_extension('undo')
     require('telescope').load_extension('possession')
     require("telescope").load_extension('notify')
 end
@@ -62,7 +61,6 @@ return {
     version = '0.1.8',
     dependencies = {
         'nvim-lua/plenary.nvim',
-        "debugloop/telescope-undo.nvim",
         {
             'nvim-telescope/telescope-fzf-native.nvim',
             build =
@@ -120,7 +118,6 @@ return {
             })
         end, "Live [G]rep"),
         keymap('<leader>fm', ":Telescope keymaps<cr>", "Key[m]aps"),
-        keymap('<leader>fu', ":Telescope undo<cr>", "[U]ndo "),
         keymap('<leader>fs', ":Telescope lsp_document_symbols<cr>", "LSP [S]ymbol"),
         keymap("<leader>fp", ":Telescope possession list<cr>", "[P]ossession"),
         keymap("<leader>fn", ":Telescope notify<cr>", "[N]otifications"),

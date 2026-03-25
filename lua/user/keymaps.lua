@@ -158,7 +158,7 @@ vim.g.sidebar_ft = {
     dapui_scopes = true, dapui_console = true, ["dap-repl"] = true,
     toggleterm = true, ["neo-tree"] = true, notify = true,
     ["neotest-summary"] = true, ["neotest-output-panel"] = true,
-    trouble = true, dbui = true, help = true, qf = true
+    help = true, qf = true
 }
 
 -- Resizing split more consistently

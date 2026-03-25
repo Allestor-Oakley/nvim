@@ -13,12 +13,6 @@ return {
         end
     },
 
-    -- Better quickfix
-    {
-        'kevinhwang91/nvim-bqf',
-        ft = 'qf'
-    },
-
     -- Better notification
     {
         'rcarriga/nvim-notify',

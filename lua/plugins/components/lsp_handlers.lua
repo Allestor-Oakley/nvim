@@ -19,6 +19,7 @@ local function lsp_keymaps(bufnr)
 	keymap("<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Go to prev diagnostic")
 	keymap("<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP [r]ename")
 	keymap("<leader>ls", "<cmd>lua vim.lsp.buf.signature_help({ border = 'rounded' })<CR>", "LSP [s]ignature")
+	keymap("<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", "LSP code [a]ction")
 	keymap("<leader>lt", "<cmd>LspRestart<CR>", "LSP Res[t]art")
 	-- Telescope
 	keymap("<leader>gd", ":Telescope lsp_definitions<CR>", "Go to [d]efinition")

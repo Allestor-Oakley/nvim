@@ -6,10 +6,6 @@ return {
     "emmet_language_server",
     "vue_ls",
     "ts_ls",
-    -- PHP
-    "intelephense",
-    -- Clang
-    "clangd",
     -- JSON
     "jsonls",
     -- Rust
