@@ -5,30 +5,24 @@ return {
         preset = "helix",
         delay = 800,
         spec = {
-            { "<leader>\\", group = "DAP" },
-            { "<leader>f",  group = "Telescope" },
-            { "<leader>l",  group = "LSP and Lazy" },
-            { "<leader>g",  group = "Git and GoTo" },
+            { "<leader>f", group = "Telescope" },
+            { "<leader>l", group = "LSP and Lazy" },
+            { "<leader>g", group = "Git and GoTo" },
             {
                 "<leader>t",
                 group = "Test, Task, and Tab",
                 icon = { icon = '', color = 'yellow' }
             },
-            { "<leader>r", group = "Refactoring" },
-            { "<leader>`", group = "Kulala" },
             { "<leader>b", group = "Bufferline" },
         },
         icons = {
             rules = {
                 { pattern = "ufo", icon = "󱃅", color = "cyan" },
-                { pattern = "dap", icon = '', color = 'red' },
                 { pattern = "lsp", icon = '', color = 'cyan' },
                 { pattern = "lazy", icon = '󰒲', color = 'red' },
                 { plugin = "lazygit.nvim", icon = '', color = 'orange' },
-                { pattern = "neotest", icon = '', color = 'yellow' },
                 { pattern = "overseer", icon = '', color = 'yellow' },
                 { pattern = "tab", icon = '󰓩', color = 'yellow' },
-                { pattern = "kulala", icon = '', color = 'cyan' },
                 { pattern = "fullscreen", icon = '', color = 'cyan' },
                 { pattern = "flash", icon = '', color = 'yellow' },
                 { pattern = "split", icon = '󰝘', color = 'red' },

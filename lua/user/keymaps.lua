@@ -154,10 +154,7 @@ map("n", "<leader>wq", function()
 end)
 ---@format disable-next
 vim.g.sidebar_ft = {
-    dapui_watches = true, dapui_stacks = true, dapui_breakpoints = true,
-    dapui_scopes = true, dapui_console = true, ["dap-repl"] = true,
     toggleterm = true, ["neo-tree"] = true, notify = true,
-    ["neotest-summary"] = true, ["neotest-output-panel"] = true,
     help = true, qf = true
 }
 
