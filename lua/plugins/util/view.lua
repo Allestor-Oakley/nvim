@@ -1,10 +1,4 @@
 return {
-    {
-        'sindrets/diffview.nvim',
-        dependencies = 'nvim-lua/plenary.nvim',
-        event = vim.g.open_file_evt
-    },
-
     -- Csv View
     {
         "hat0uma/csvview.nvim",

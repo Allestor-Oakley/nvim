@@ -51,3 +51,5 @@ vim.cmd("filetype plugin indent on")
 vim.cmd('set shada="NONE"')
 vim.cmd('set guicursor+=c-t:ver25')
 vim.g.clipboard = "win32yank"
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
