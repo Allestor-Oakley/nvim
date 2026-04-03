@@ -1,5 +1,18 @@
 -- Better neovim ui
 return {
+    -- Improve neovim ui
+    {
+        'stevearc/dressing.nvim',
+        event = vim.g.open_file_evt,
+        config = function()
+            require('dressing').setup({
+                input = {
+                    relative = "editor",
+                }
+            })
+        end
+    },
+
     -- Better notification
     {
         'rcarriga/nvim-notify',
