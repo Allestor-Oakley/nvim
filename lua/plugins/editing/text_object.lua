@@ -11,7 +11,7 @@ return {
             require("various-textobjs").setup({
                 keymaps = {
                     useDefaults = true,
-                    disabledDefaults = { "ic", "ac", "r", "R", "i,", "a," },
+                    disabledDefaults = { "ic", "ac", "r", "R", "i,", "a,", "in", "an" },
                 }
             })
             vim.keymap.set({ "o", "x" }, "ic", function()

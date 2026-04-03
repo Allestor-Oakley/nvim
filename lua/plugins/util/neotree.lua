@@ -74,6 +74,7 @@ local neotree_opts = {
             mappings = {
                 ["z"] = "expand_all_nodes",
                 ["Z"] = "close_all_nodes",
+                ["<F3>"] = "fuzzy_finder",
             }
         }
     },
@@ -113,7 +114,6 @@ local neotree_opts = {
             ["s"] = "noop",
             ["v"] = "open_vsplit",
             ["<F2>"] = "rename",
-            ["<F3>"] = "fuzzy_finder",
             ["<F4>"] = "show_help",
         }
     }
