@@ -1,8 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        { "mason-org/mason.nvim",           lazy = true },
-        { "mason-org/mason-lspconfig.nvim", lazy = true },
+        { "mason-org/mason.nvim", lazy = true },
     },
     event = vim.g.open_file_evt,
     keys = {
@@ -19,11 +18,6 @@ return {
                 height = vim.g.flsize + 0.02,
             },
         })
-        require("mason-lspconfig").setup({
-            ensure_installed = servers,
-            automatic_installation = true,
-            automatic_enable = servers
-        })
 
         local opts = {}
         for _, server in pairs(servers) do
@@ -36,6 +30,7 @@ return {
             if require_ok then
                 opts = vim.tbl_deep_extend("force", conf_opts, opts)
             end
+            vim.lsp.enable(server)
             vim.lsp.config(server, opts)
         end
 
