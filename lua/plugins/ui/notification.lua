@@ -1,6 +1,4 @@
--- Better neovim ui
 return {
-    -- Better notification
     {
         'rcarriga/nvim-notify',
         event = vim.g.open_file_evt,
