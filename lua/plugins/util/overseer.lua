@@ -9,6 +9,7 @@ return {
         "OverseerQuickAction", "OverseerTaskAction",
         "OverseerClearCache",
     },
+    version = "1.6.0",
     keys = {
         { '<leader>tr', ":OverseerRun<cr>", desc = "Overseer: [r]un task" }
     },
