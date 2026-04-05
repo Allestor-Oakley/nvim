@@ -121,6 +121,7 @@ return {
         keymap('<leader>fs', ":Telescope lsp_document_symbols<cr>", "LSP [S]ymbol"),
         keymap("<leader>fp", ":Telescope possession list<cr>", "[P]ossession"),
         keymap("<leader>fn", ":Telescope notify<cr>", "[N]otifications"),
+        keymap("<leader>fd", ":Telescope diagnostics<cr>", "[D]iagnostics"),
     },
     config = tel_conf,
 }

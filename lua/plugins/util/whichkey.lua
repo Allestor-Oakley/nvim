@@ -10,7 +10,7 @@ return {
             { "<leader>g", group = "Git and GoTo" },
             {
                 "<leader>t",
-                group = "Test, Task, and Tab",
+                group = "Task and Tab",
                 icon = { icon = '', color = 'yellow' }
             },
             { "<leader>b", group = "Bufferline" },
