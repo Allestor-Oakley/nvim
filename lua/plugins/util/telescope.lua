@@ -20,7 +20,6 @@ local function tel_conf()
             },
         },
         extensions = {
-            fzf = {}
         },
         pickers = {
             live_grep = {
@@ -31,7 +30,6 @@ local function tel_conf()
         },
     })
 
-    require('telescope').load_extension('fzf')
     require('telescope').load_extension('possession')
     require("telescope").load_extension('notify')
 end
@@ -61,11 +59,6 @@ return {
     version = '*',
     dependencies = {
         'nvim-lua/plenary.nvim',
-        {
-            'nvim-telescope/telescope-fzf-native.nvim',
-            build =
-            'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && cmake --build build --config Release && cmake --install build --prefix build'
-        },
         'jedrzejboczar/possession.nvim',
         'rcarriga/nvim-notify',
     },
